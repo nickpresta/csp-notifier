@@ -11,11 +11,11 @@ import (
 )
 
 type ReportContent struct {
-	DocumentURI string `json:"document-uri" bson:"documentURI"`
-	Referrer string `json:"referrer" bson:"referrer"`
-	BlockedURI string `json:"blocked-uri" bson:"blockedURI"`
+	DocumentURI       string `json:"document-uri" bson:"documentURI"`
+	Referrer          string `json:"referrer" bson:"referrer"`
+	BlockedURI        string `json:"blocked-uri" bson:"blockedURI"`
 	ViolatedDirective string `json:"violated-directive" bson:"violatedDirective"`
-	OriginalPolicy string `json:"original-policy" bson:"originalPolicy"`
+	OriginalPolicy    string `json:"original-policy" bson:"originalPolicy"`
 }
 
 type Report struct {
@@ -23,11 +23,11 @@ type Report struct {
 }
 
 type BSONReportContent struct {
-	DocumentURI string `json:"documentURI" bson:"documentURI"`
-	Referrer string `json:"referrer" bson:"referrer"`
-	BlockedURI string `json:"blockedURI" bson:"blockedURI"`
+	DocumentURI       string `json:"documentURI" bson:"documentURI"`
+	Referrer          string `json:"referrer" bson:"referrer"`
+	BlockedURI        string `json:"blockedURI" bson:"blockedURI"`
 	ViolatedDirective string `json:"violatedDirective" bson:"violatedDirective"`
-	OriginalPolicy string `json:"originalPolicy" bson:"originalPolicy"`
+	OriginalPolicy    string `json:"originalPolicy" bson:"originalPolicy"`
 }
 
 var templates = template.Must(template.ParseFiles("index.html"))
