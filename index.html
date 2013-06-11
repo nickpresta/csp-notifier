@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app>
+  <head>
+    <title>CSP Reports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body data-ng-controller="ReportCtrl">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>CSP Reports</h1>
+          <p><a class="btn btn-info" data-ng-click="fetch()"><i class="icon-refresh"></i> Refresh</a></p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Document URI</th>
+                <th>Referrer</th>
+                <th>Blocked URI</th>
+                <th>Violated Directive</th>
+                <th>Original Policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-ng-repeat="report in reports">
+                <td data-ng-bind="report.documentURI"></td>
+                <td data-ng-bind="report.referrer"></td>
+                <td data-ng-bind="report.blockedURI"></td>
+                <td data-ng-bind="report.violatedDirective"></td>
+                <td data-ng-bind="report.originalPolicy"></td>
+              </tr>
+              <tr data-ng-show="reports === 'null'">
+                <td colspan="5">No reports to show yet!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+    <script>
+      function ReportCtrl($scope, $http) {
+        $scope.fetch = function() {
+          $http.get("/reports").success(function(data) {
+            $scope.reports = data;
+          });
+        };
+
+        $scope.reports = [];
+        $scope.fetch();
+      }
+    </script>
+  </body>
+</html>
