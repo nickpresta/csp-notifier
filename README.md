@@ -2,9 +2,10 @@
 
 Provides an endpoint to `POST` [Reports](http://www.html5rocks.com/en/tutorials/security/content-security-policy/#reporting) and a simple interface to view all the reports.
 
-## Development requirements
 
-* Go Version 1.0+
+## Requirements
+
+* Go Version 1.0+ (not required if you're deploying -- build the binary as explained below)
 * MongoDB server (2.4+)
 
 ## How to run
